@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from '../../axios';
-import Post from '../../components/Post/Post';
-import FullPost from '../../components/FullPost/FullPost';
-import NewPost from '../../components/NewPost/NewPost';
+import Post from '../../components/Post/Post'
+import FullPost from './FullPost/FullPost';
+import NewPost from './NewPost/NewPost';
 import './Blog.css';
 
 class Blog extends Component {
@@ -37,7 +37,7 @@ class Blog extends Component {
 
         if (!this.state.error) {
             posts = this.state.posts.map(post => {
-                return <Post 
+                return <Post
                             key={post.id} 
                             title={post.title} 
                             author={post.author}
@@ -47,7 +47,15 @@ class Blog extends Component {
         }
 
         return (
-            <div>
+            <div className="Blog">
+                <header>
+                    <nav>
+                        <ul>
+                            <li><a href="/"></a>Home</li>
+                            <li><a href="/new-post"></a>New Post</li>
+                        </ul>
+                    </nav>
+                </header>
                 <section className="Posts">
                     {posts}
                 </section>
