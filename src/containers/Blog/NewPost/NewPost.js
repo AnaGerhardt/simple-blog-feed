@@ -3,6 +3,7 @@ import axios from 'axios';
 import './NewPost.css';
 
 class NewPost extends Component {
+
     state = {
         title: '',
         content: '',
