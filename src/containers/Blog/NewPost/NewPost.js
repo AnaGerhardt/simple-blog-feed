@@ -7,7 +7,8 @@ class NewPost extends Component {
     state = {
         title: '',
         content: '',
-        author: 'Max'
+        author: 'Max',
+        submitted: false
     }
 
     postDataHandler = () => {
@@ -19,10 +20,12 @@ class NewPost extends Component {
         axios.post('/posts', data)
             .then(response => {
                 console.log(response)
+                this.props.history.push('/posts')
             });
     }
 
     render () {
+
         return (
             <div className="NewPost">
                 <h1>Add a Post</h1>
@@ -35,7 +38,7 @@ class NewPost extends Component {
                     <option value="Max">Max</option>
                     <option value="Manu">Manu</option>
                 </select>
-                <button onClick={() => this.postDataHandler}>Add Post</button>
+                <button onClick={this.postDataHandler}>Add Post</button>
             </div>
         );
     }
